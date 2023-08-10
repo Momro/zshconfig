@@ -1,0 +1,1 @@
+plugins=(git fasd battery command-not-found compleat cp debian dircycle extract encode64 git-extras gitfast git-flow github git-hubflow git-remote-branch sudo pass python rsync screen svn zsh-syntax-highlighting urltools history-substring-search colored-man-pages zsh-syntax-highlighting)
