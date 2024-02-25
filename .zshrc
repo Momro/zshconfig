@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
-HOMEFOLDER="/home/pfister"
+HOMEFOLDER="$HOME"
 # Path to all ZSH config files
-ZSHCONFIGFILES="/usr/etc/zsh/sourcefiles.zsh"
+ZSHCONFIGFILES="$HOME/zshconfig/sourcefiles.zsh"
 
 # ########################
 # Quick setup of oh-my-zsh 
