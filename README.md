@@ -7,3 +7,5 @@ Dafür sind folgende Anpassungen notwendig:
 - Datei 'scriptOutput.cfgẁ wird im Ordner `~/.config/scriptOutput/` gesucht
 - In der Datei kann man konfigurieren, ob man überhaupt gefragt werden will (z.B. in Kali an, im Office-Linux nicht), und wo das Verzeichnis sein soll (z.B. `~/projekte/logging/`)
 
+Requires lolcat ;)
+sudo apt install lolcat

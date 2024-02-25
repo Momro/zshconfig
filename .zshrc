@@ -21,6 +21,6 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # Load all other configs
-source $ZSHCONFIGFILES/*
+source $ZSHCONFIGFILES/sourcefiles.zsh
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
