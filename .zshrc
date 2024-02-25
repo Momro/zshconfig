@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 HOMEFOLDER="$HOME"
 # Path to all ZSH config files
-ZSHCONFIGFILES="$HOME/zshconfig/sourcefiles.zsh"
+ZSHCONFIGFILES="$HOME/zshconfig"
 
 # ########################
 # Quick setup of oh-my-zsh 
@@ -21,6 +21,6 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # Load all other configs
-source $ZSHCONFIGFILES
+source $ZSHCONFIGFILES/*
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,13 +1,13 @@
-source /usr/etc/zsh/theme.d/theme.zsh
-source /usr/etc/zsh/environmentVariables.zsh
-source /usr/etc/zsh/extract.zsh
-source /usr/etc/zsh/alias.zsh
-source /usr/etc/zsh/functions.zsh
-source /usr/etc/zsh/prompt.zsh
+source $ZSHCONFIGFILES/theme.d/theme.zsh
+source $ZSHCONFIGFILES/environmentVariables.zsh
+source $ZSHCONFIGFILES/extract.zsh
+source $ZSHCONFIGFILES/alias.zsh
+source $ZSHCONFIGFILES/functions.zsh
+source $ZSHCONFIGFILES/prompt.zsh
 
 # source plugins
-source /usr/etc/zsh/plugins.d/plugins.zsh
-source /usr/etc/zsh/plugins.d/plugin-config.zsh
+source $ZSHCONFIGFILES/plugins.d/plugins.zsh
+source $ZSHCONFIGFILES/plugins.d/plugin-config.zsh
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $HOME/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh
