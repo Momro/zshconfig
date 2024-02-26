@@ -7,6 +7,10 @@ Dafür sind folgende Anpassungen notwendig:
 - Datei 'scriptOutput.cfgẁ wird im Ordner `~/.config/scriptOutput/` gesucht
 - In der Datei kann man konfigurieren, ob man überhaupt gefragt werden will (z.B. in Kali an, im Office-Linux nicht), und wo das Verzeichnis sein soll (z.B. `~/projekte/logging/`)
 
+sudo apt update ; sudo apt upgrade -y ; sudo apt install zsh
+
+rm $HOME/.zshrc ; ln -s $HOME/zshconfig/.zshrc $HOME/.zshrc
+
 Requires lolcat ;) and autojump:
 sudo apt install lolcat autojump
 
