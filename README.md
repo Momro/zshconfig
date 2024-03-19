@@ -9,7 +9,9 @@ Dafür sind folgende Anpassungen notwendig:
 
 sudo apt update ; sudo apt upgrade -y ; sudo apt install zsh -y
 
-rm $HOME/.zshrc ; ln -s $HOME/zshconfig/.zshrc $HOME/.zshrc
+git clone https://github.com/Momro/zshconfig.git
+
+cd $HOME ; rm .zshrc ; ln -s $HOME/zshconfig/.zshrc $HOME/.zshrc
 
 Requires lolcat ;) and autojump:
 sudo apt install lolcat autojump
