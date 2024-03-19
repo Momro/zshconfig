@@ -11,6 +11,10 @@ sudo apt update ; sudo apt upgrade -y ; sudo apt install zsh -y
 
 git clone https://github.com/Momro/zshconfig.git
 
+Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+Remove old .zshrc and replace with symlink to new .zshrc
 cd $HOME ; rm .zshrc ; ln -s $HOME/zshconfig/.zshrc $HOME/.zshrc
 
 Requires lolcat ;) and autojump:
