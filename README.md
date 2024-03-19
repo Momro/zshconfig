@@ -18,7 +18,7 @@ git clone https://github.com/Momro/zshconfig.git
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Remove old .zshrc and replace with symlink to new .zshrc
-cd $HOME ; rm .zshrc ; ln -s $HOME/zshconfig/.zshrc $HOME/.zshrc
+cd $HOME ; rm .zshrc .zshrc.pre-oh-my-zsh ; ln -s $HOME/zshconfig/.zshrc $HOME/.zshrc
 
 # Requires lolcat ;) and autojump:
 sudo apt install lolcat autojump
