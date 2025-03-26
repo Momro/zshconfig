@@ -1,6 +1,8 @@
 # download zsh
 echo "[+] Download ZSH"
 sudo apt update ; sudo apt upgrade -y ; sudo apt install zsh -y
+echo "[+] ZSH as default shell"
+sudo chsh -s $(which zsh)
 
 # download this repo
 echo "[+] Clone Momro repo"
