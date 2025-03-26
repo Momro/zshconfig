@@ -1,4 +1,4 @@
-Meine ZSH-Config
+# Meine ZSH-Config
 
 Kleine Besonderheit:
 Mit "script-logging.zsh" kann man das Logging des Konsolenfensters einschalten.
