@@ -7,6 +7,12 @@ Dafür sind folgende Anpassungen notwendig:
 - Datei 'scriptOutput.cfgẁ wird im Ordner `~/.config/scriptOutput/` gesucht
 - In der Datei kann man konfigurieren, ob man überhaupt gefragt werden will (z.B. in Kali an, im Office-Linux nicht), und wo das Verzeichnis sein soll (z.B. `~/projekte/logging/`)
 
+# tl;dr
+```
+curl -s https://raw.githubusercontent.com/Momro/zshconfig/refs/heads/main/install.sh | bash
+```
+
+# Install file content
 ```
 # download zsh
 sudo apt update ; sudo apt upgrade -y ; sudo apt install zsh -y
