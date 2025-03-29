@@ -1,6 +1,6 @@
 # download zsh
 echo "[+] Download ZSH"
-sudo apt update ; sudo apt upgrade -y ; sudo apt install zsh -y
+sudo apt update ; sudo apt install zsh -y
 echo "[+] ZSH as default shell"
 chsh -s $(which zsh) $(whoami)
 
