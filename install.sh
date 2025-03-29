@@ -2,7 +2,7 @@
 echo "[+] Download ZSH"
 sudo apt update ; sudo apt install zsh git -y
 echo "[+] ZSH as default shell"
-chsh -s $(which zsh) $(whoami)
+sudo chsh -s $(which zsh) $(whoami)
 
 # download this repo
 echo "[+] Clone Momro repo"
