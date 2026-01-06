@@ -23,11 +23,12 @@ else
 	colorHostname=$colorMyKali
 fi
 
-if [[ $(whoami) == "skuta" ]] ; then
-	# 7 ist silber, siehe auch https://jonasjacek.github.io/colors/
-	colorUsername="%F{7}" # silver
+if [ "$UID" -eq 0 ]; then
+		# root
+        ACCESS_RIGHTS="#"
 else
-	colorUsername="%F{2}" # green
+		# not root
+        ACCESS_RIGHTS="$"
 fi
 
 colorTime=$colorHostname
