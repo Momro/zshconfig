@@ -8,27 +8,30 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 # für zsh
 colorMyKali="%F{15}" # white
 colorNotebook="%F{6}" # teal
-colorPentestbox="%B%F{12}" # blue
-colorRootserver="%F{11}" # yellow
+colorBlue="%B%F{12}" # blue
+colorYellow="%F{11}" # yellow
 colorHostname=""
 colorNone="%f%b"
 
-if [[ $(hostname) == *"ptbox"* ]] ; then
-	colorHostname=$colorPentestbox
-elif [[ $(hostname) == "NBSkuta" || $(hostname) == "NBPfister" ]] ; then
-	colorHostname=$colorNotebook
-elif [[ $(hostname) == "pta1" ]] ; then
-	colorHostname=$colorRootserver
+if [[ $(hostname) == *"box"* ]] ; then
+	colorHostname=$colorBlue
+elif [[ $(hostname) == "notebook" ]] ; then
+	colorHostname=$colorYellow
+elif [[ $(hostname) == "Server" ]] ; then
+	colorHostname=$colorNone
 else
 	colorHostname=$colorMyKali
 fi
 
+# check if root or not
 if [ "$UID" -eq 0 ]; then
-		# root
+        # root user
         ACCESS_RIGHTS="#"
+        colorUsername="%F{7}" # silver
 else
-		# not root
+        # normal user
         ACCESS_RIGHTS="$"
+        colorUsername="%F{2}" # green
 fi
 
 colorTime=$colorHostname
@@ -47,16 +50,6 @@ USE_RIGHT_PROMPT="false"
 USE_LINE_CONNECTOR="true"
 connector_line_one="╭─"
 connector_line_two="" # "╰─"
-
-if [ $(whoami) = "pfister" ] ; then
-	ACCESS_RIGHTS="$"
-	colorUsername=""
-else
-	ACCESS_RIGHTS="#"
-	colorUsername=""
-fi
-
-
 
 if [ $USE_RIGHT_PROMPT = "true" ] ; then
 	if [ $USE_LINE_CONNECTOR = "true" ] ; then
