@@ -18,6 +18,12 @@ if [[ ! -d $HOMEFOLDER/.oh-my-zsh ]] ; then
         fi
 fi
 
+# auto-load github ssh key
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/github 2>/dev/null
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # Load all other configs
