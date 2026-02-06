@@ -17,6 +17,7 @@ function generate-password() {
 }
 
 function docker-logs() {
+	echo "[!] custom function"
 	if [[ $@ == '' ]] ; then
 		docker compose logs -f
 	else
