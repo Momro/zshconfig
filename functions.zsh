@@ -15,3 +15,11 @@ function generate-password() {
 
         echo $pass | head -c $@ ; echo
 }
+
+function docker-logs() {
+	if [[ $@ == '' ]] ; then
+		docker compose logs -f
+	else
+		docker logs --tail 50 $@
+	fi
+}
