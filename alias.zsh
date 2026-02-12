@@ -15,7 +15,6 @@ alias gitlog='git log --format="%n[Commit: %C(green)%h%Creset]  -  [Name: %C(gre
 alias grepc="grep -n --color"
 
 alias cp-large=rsync -ah --info=progress2
-alias generate-password='openssl rand -hex '
 
 alias docker-status='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
 alias docker-restart='echo "restarting docker" && docker compose down && echo "docker down" && docker compose up -d && echo "docker up again" '
