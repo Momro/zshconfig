@@ -1,8 +1,18 @@
 # download zsh
 echo "[+] Download ZSH"
-sudo apt update ; sudo apt install zsh git -y
+which sudo ; if [[ $? == 0 ]] ; then 
+  sudo apt update ; sudo apt install zsh git -y
+else
+  apt update ; apt install zsh git -y
+fi
+
 echo "[+] ZSH as default shell"
-sudo chsh -s $(which zsh) $(whoami)
+
+which sudo ; if [[ $? == 0 ]] ; then 
+  sudo chsh -s $(which zsh) $(whoami)
+else
+  chsh -s $(which zsh) $(whoami)
+fi
 
 # download this repo
 echo "[+] Clone Momro repo"
@@ -17,7 +27,11 @@ cd $HOME ; rm .zshrc .zshrc.pre-oh-my-zsh ; ln -s $HOME/zshconfig/.zshrc $HOME/.
 
 # Requires lolcat ;) and autojump:
 echo "[+] Install lolcat and autojump"
-sudo apt install lolcat autojump -y
+which sudo ; if [[ $? == 0 ]] ; then 
+  sudo apt install lolcat autojump -y
+else
+  apt install -y lolcat autojump
+fi
 
 # zsh autosuggestions:
 echo "[+] Install zsh autosuggestion"
