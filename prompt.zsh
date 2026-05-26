@@ -1,27 +1,23 @@
-# alt
-# PS1='%#%F{white}[%n@%m]%F{yellow}%B%~: %f%b'
-
-
 # für bash
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # für zsh
-colorMyKali="%F{15}" # white
-colorNotebook="%F{6}" # teal
-colorBlue="%B%F{12}" # blue
-colorYellow="%F{11}" # yellow
-colorHostname=""
-colorNone="%f%b"
 
-if [[ $(hostname) == *"box"* ]] ; then
-	colorHostname=$colorBlue
-elif [[ $(hostname) == "notebook" ]] ; then
-	colorHostname=$colorYellow
-elif [[ $(hostname) == "Server" ]] ; then
-	colorHostname=$colorNone
+# HOST NAME COLOR PICKER
+## allowed colors for the host name:
+ALLOWED_COLORS=(6 9 11 12 13 14 27 33 39 45 46 47 48 51 66 67 68 69 72 73 74 75 76 80 81 82 83 98 99 106 107 109 110 111 112 113 118 135 141 166 172 201 208 214)
+
+## now let's check if the color was already set
+HOSTNAMECOLOR_PATH="${HOME}/zshconfig/hostnamecolor.zsh"
+if [ -f ${HOSTNAMECOLOR_PATH} ] ; then
+        colorHostname="%F{$(cat ${HOSTNAMECOLOR_PATH})}"
 else
-	colorHostname=$colorMyKali
+        # choose random color
+        RANDOM_HOST_COLOR=${ALLOWED_COLORS[$(( RANDOM % ${#ALLOWED_COLORS[@]} + 1 ))]}
+        colorHostname="%F{${RANDOM_HOST_COLOR}}"
+        echo $RANDOM_HOST_COLOR > "${HOSTNAMECOLOR_PATH}"
 fi
+
 
 # check if root or not
 if [ "$UID" -eq 0 ]; then
