@@ -18,6 +18,7 @@ else
         echo $RANDOM_HOST_COLOR > "${HOSTNAMECOLOR_PATH}"
 fi
 
+colorNone="%f%b"
 
 # check if root or not
 if [ "$UID" -eq 0 ]; then
