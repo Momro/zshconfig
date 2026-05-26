@@ -5,8 +5,6 @@ alias poweroff="systemctl poweroff"
 # mein tastatur-layout umstellen
 alias setdvoraklayout="setxkbmap -layout de -variant dvorak -option ctrl:nocaps"
 
-alias cat=lolcat
-alias catcat=/bin/cat
 alias please=sudo
 alias mv2='f(){mv -i "$@";};f'
 alias mv='mv -i'
