@@ -9,7 +9,6 @@ fi
 # don't know why this should ever not be in PATH
 PATH="$HOME/.local/bin/:$PATH"                                                       
 
-
 # mal schauen, ob das funktioniert
 export SUDO_EDITOR="vim"
 export env_editor="vim"
