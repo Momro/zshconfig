@@ -14,7 +14,9 @@ alias grepc="grep -n --color"
 
 alias cp-large=rsync -ah --info=progress2
 
+# DOCKER
 alias docker-status='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
 alias docker-restart='echo "restarting docker" && docker compose down && echo "docker down" && docker compose up -d && echo "docker up again" '
+alias docker-prune='echo "docker system prune -a --volumes" && docker system prune -a --volumes'
 
 alias l='ls -lAh'
