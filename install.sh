@@ -25,12 +25,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Remove old .zshrc and replace with symlink to new .zshrc
 cd $HOME ; rm .zshrc .zshrc.pre-oh-my-zsh ; ln -s $HOME/zshconfig/.zshrc $HOME/.zshrc
 
-# Requires lolcat ;) and autojump:
-echo "[+] Install lolcat and autojump"
+# Requires autojump:
+echo "[+] Install autojump"
 which sudo ; if [[ $? == 0 ]] ; then 
-  sudo apt install lolcat autojump -y
+  sudo apt install autojump -y
 else
-  apt install -y lolcat autojump
+  apt install -y autojump
 fi
 
 # zsh autosuggestions:
