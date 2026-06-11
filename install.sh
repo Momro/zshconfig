@@ -16,7 +16,7 @@ fi
 
 # download this repo
 echo "[+] Clone Momro repo"
-git clone https://github.com/Momro/zshconfig.git
+git clone https://github.com/Momro/zshconfig.git ~/zshconfig
 
 # install oh-my-zsh
 echo "[+] Install oh-my-zsh"
