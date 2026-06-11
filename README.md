@@ -18,7 +18,7 @@ curl -s https://raw.githubusercontent.com/Momro/zshconfig/refs/heads/main/instal
 sudo apt update ; sudo apt upgrade -y ; sudo apt install zsh -y
 
 # download this repo
-git clone https://github.com/Momro/zshconfig.git ~/.
+git clone https://github.com/Momro/zshconfig.git ~/zshconfig
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
