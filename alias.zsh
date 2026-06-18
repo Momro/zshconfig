@@ -20,3 +20,4 @@ alias docker-restart='echo "restarting docker" && docker compose down && echo "d
 alias docker-prune='echo "docker system prune -a --volumes" && docker system prune -a --volumes'
 
 alias l='ls -lAh'
+alias fs="du -sh "
