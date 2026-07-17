@@ -24,3 +24,14 @@ function docker-logs() {
 		docker logs --tail 50 $@
 	fi
 }
+
+function biggestfiles {
+	if [[ "${1}" = "" ]] ; then
+		1="."
+	fi
+	if [[ "${2}" = "" ]] ; then
+		2="10"
+	fi
+			
+	du -ah "${1}" | sort -rh | head -n "${2}"
+}

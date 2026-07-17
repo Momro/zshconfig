@@ -21,3 +21,4 @@ alias docker-prune='echo "docker system prune -a --volumes" && docker system pru
 
 alias l='ls -lAh'
 alias fs="du -sh "
+alias bf="biggestfiles"
