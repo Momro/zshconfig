@@ -35,3 +35,32 @@ function biggestfiles {
 			
 	du -ah "${1}" | sort -rh | head -n "${2}"
 }
+function cread {
+  read "value?${1}: "
+  echo -n "${value}"
+}
+
+function ripcd {
+  artist=$(cread "Artist")
+  album=$(cread "Album")
+  ordner="${HOME}/Musik/${artist}/${album}"
+  cdnummer=$(cread "CD-Nummer")
+  if [[  "${cdnummer}" != "" ]] ; then
+    ordner="${HOME}/Musik/${artist}/${album}/CD${cdnummer}"
+  fi
+
+  cdlaufwerknummer=$(cread "CD-Laufwerk_(Nummer)")
+
+  device="/dev/sr${cdlaufwerknummer}"
+  echo "Device is '${device}'."
+  mkdir -p "${ordner}"
+  echo "[+] Folder '${ordner}' created."
+  cd "${ordner}"
+
+  if [[ ! $(findmnt "${device}") = ""  ]] ; then
+    echo "[\!] CD mounted; unmounting" ;
+    sudo umount "${device}" ; 
+  fi ;
+
+  icedax -D "${device}" -B && eject "${device}" && conv2mp3.sh . . wav 2 && rm *.inf && echo "[+] Ripped CD '${cdnummer}', '${album}' by '${artist}'"
+}
