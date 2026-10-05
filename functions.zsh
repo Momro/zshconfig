@@ -64,3 +64,64 @@ function ripcd {
 
   icedax -D "${device}" -B && eject "${device}" && conv2mp3.sh . . wav 2 && rm *.inf && echo "[+] Ripped CD '${cdnummer}', '${album}' by '${artist}'"
 }
+
+function nextcloud-stop {
+        echo "${1}"
+        CONTINUE="${1}"
+        if [[ "${1}" != "y" && "${1}" != "j" ]] ; then
+                echo "[?] This will stop Nextcloud containers. Continue?"
+                CONTINUE=$(cread "Sure? (y/j/N) ")
+        fi
+
+        if [[ "${CONTINUE}" = "y" || "${CONTINUE}" = "j" ]] ; then 
+                echo "[!] Stopping Nextcloud containers"
+                docker exec -it --env STOP_CONTAINERS=1 nextcloud-aio-mastercontainer /daily-backup.sh 
+                echo "[+] Nextcloud containers stopped."
+
+                echo "[!] Stopping master container."
+                docker stop nextcloud-aio-mastercontainer 
+                echo "[+] Nextcloud master container stopped."
+        fi
+}
+
+function nextcloud-start { 
+        echo "[?] This will start Nextcloud containers. Continue?"
+        CONTINUE=$(cread "Sure? (y/j/N) ")
+
+        if [[ "${CONTINUE}" = "y" || "${CONTINUE}" = "j" ]] ; then 
+                echo "[!] Starting master container."
+                docker start nextcloud-aio-mastercontainer
+                echo "[+] Nextcloud master container started."
+
+                echo "[!] Starting Nextcloud containers"
+                docker exec -it --env START_CONTAINERS=1 nextcloud-aio-mastercontainer /daily-backup.sh
+                echo "[+] Nextcloud containers started."
+        fi
+}
+
+function nextcloud-update {
+        # Run container update once
+        echo "[?] This will update Nextcloud containers. Continue?"
+        CONTINUE=$(cread "Sure? (y/j/N) ")
+
+        if [[ "${CONTINUE}" = "y" || "${CONTINUE}" = "j" ]] ; then 
+                echo "[*] Starting update"
+                if ! docker exec --env AUTOMATIC_UPDATES=1 nextcloud-aio-mastercontainer /daily-backup.sh; then
+                    while docker ps --format "{{.Names}}" | grep -q "^nextcloud-aio-watchtower$"; do
+                        echo "Waiting for watchtower to stop"
+                        sleep 30
+                    done
+
+                    while ! docker ps --format "{{.Names}}" | grep -q "^nextcloud-aio-mastercontainer$"; do
+                        echo "Waiting for Mastercontainer to start"
+                        docker start nextcloud-aio-mastercontainer
+                        echo " Mastercontainer started"
+                    done
+
+                    # Run container update another time to make sure that all containers are updated correctly.
+                    docker exec --env AUTOMATIC_UPDATES=1 nextcloud-aio-mastercontainer /daily-backup.sh
+                        echo "[+] Update finished"
+                        echo "[*] Run 'nextcloud start' to restart Nextcloud."
+                fi
+        fi
+}
