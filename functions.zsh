@@ -120,8 +120,8 @@ function nextcloud-update {
 
                     # Run container update another time to make sure that all containers are updated correctly.
                     docker exec --env AUTOMATIC_UPDATES=1 nextcloud-aio-mastercontainer /daily-backup.sh
-                        echo "[+] Update finished"
-                        echo "[*] Run 'nextcloud start' to restart Nextcloud."
+					echo "[!] This did not work!\nThis can happen.\nRe-run this script and it will work."
                 fi
+            	echo "[+] Update finished."
         fi
 }
