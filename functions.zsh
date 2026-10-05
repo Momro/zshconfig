@@ -105,7 +105,7 @@ function nextcloud-update {
         CONTINUE=$(cread "Sure? (y/j/N) ")
 
         if [[ "${CONTINUE}" = "y" || "${CONTINUE}" = "j" ]] ; then 
-                echo "[*] Starting update"
+                echo "[*] Starting update.\nBe patient. This can take 5-7 minutes."
                 if ! docker exec --env AUTOMATIC_UPDATES=1 nextcloud-aio-mastercontainer /daily-backup.sh; then
                     while docker ps --format "{{.Names}}" | grep -q "^nextcloud-aio-watchtower$"; do
                         echo "Waiting for watchtower to stop"
